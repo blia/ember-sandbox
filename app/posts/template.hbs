@@ -1,5 +1,8 @@
-{{#each post in model}}
-  <h1>{{post.title}}</h1>
-  <p>{{post.body}}</p>
-  <hr>
-{{/each}}
+<aside>
+  {{#each post in model}}
+    <h2>{{#link-to 'post' post.id}}{{post.title}}{{/link-to}}</h2>
+  {{/each}}
+</aside>
+<section>
+  {{outlet}}
+</section>
