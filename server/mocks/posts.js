@@ -5,17 +5,30 @@ module.exports = function(app) {
     {
       id: 1,
       title: '1st post',
-      body: 'Post body'
+      body: 'Post body',
+      comments: [1]
     },
     {
       id: 2,
       title: '2nd post',
-      body: 'Post great body'
+      body: 'Post great body',
+      comments: [2]
+    }
+  ]
+  var comments = [
+    {
+      id: 1,
+      message: '1st post comment'
+    },
+    {
+      id: 2,
+      message: '2nd post comment'
     }
   ]
   postsRouter.get('/', function(req, res) {
     res.send({
-      'posts': data
+      'posts': data,
+      'comments': comments
     });
   });
 
