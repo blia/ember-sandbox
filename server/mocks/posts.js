@@ -1,10 +1,21 @@
 module.exports = function(app) {
   var express = require('express');
   var postsRouter = express.Router();
-
+  var data = [
+    {
+      id: 1,
+      title: '1st post',
+      body: 'Post body'
+    },
+    {
+      id: 2,
+      title: '2nd post',
+      body: 'Post great body'
+    }
+  ]
   postsRouter.get('/', function(req, res) {
     res.send({
-      'posts': []
+      'posts': data
     });
   });
 
@@ -14,9 +25,7 @@ module.exports = function(app) {
 
   postsRouter.get('/:id', function(req, res) {
     res.send({
-      'posts': {
-        id: req.params.id
-      }
+      'post': data[req.params.id - 1]
     });
   });
 
